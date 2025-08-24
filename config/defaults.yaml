@@ -1,0 +1,33 @@
+﻿tools_dir: "tools"
+nuclei_templates: "tools/nuclei-templates"
+
+httpx:
+  threads: 120
+  timeout: 8
+  retries: 1
+  mc: [200,301,302,401,403]
+
+nuclei:
+  shards: 6
+  concurrency: 100
+  rate_limit: 600
+  timeout: 12
+  retries: 0
+  bulk_size: 25
+  use_interactsh: false
+  enable_extra_tags: false
+  tags_base: ["takeovers","file-upload"]
+  tags_extra: ["rce","cve"]
+  exclude_tags: ["code"]
+  severity: ["critical","high"]
+
+wp:
+  wpscan_max_threads: 10
+  request_timeout: 12
+  connect_timeout: 5
+  tls_disable_checks: true
+
+outputs:
+  out_dir: "out"
+  logs_dir: "out/logs"
+  tmp_dir: "tmp"

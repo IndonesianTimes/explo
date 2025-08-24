@@ -1,3 +1,0 @@
-https://demo.wp-api.org
-https://sandbox.onlinephpfunctions.com
-https://themes.svn.wordpress.org

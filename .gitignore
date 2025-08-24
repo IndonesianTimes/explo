@@ -1,15 +1,111 @@
-/out/
-/output/
-/out_debug/
-/tmp/
+# ── Project-local artifacts (never commit) ─────────────────────────────────────
+/out/**
+!/out/.gitkeep
+/tmp/**
+!/tmp/.gitkeep
+/domain/**
+!/domain/.gitkeep
+/wordpress/**
+!/wordpress/.gitkeep
+
+# ── Tools & binaries (local only) ─────────────────────────────────────────────
+/tools/*
+!/tools/README.md
+
+# ── Logs & runtime junk ───────────────────────────────────────────────────────
 *.log
-*.jsonl
-*.flag
+*.lock
+*.tmp
+*.bak
+*.old
+*.orig
+*.retry
+*.pid
+
+# ── Secrets & credentials ─────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.der
+*.pub
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+.python-version
+.venv/
+venv/
+ENV/
+env/
+
+# ── Ruby / WPScan ─────────────────────────────────────────────────────────────
+.bundle/
+vendor/bundle/
+vendor/cache/
+.yardoc/
+.ruby-version
+.rbenv-version
+
+# ── Node / front-end (optional future UI) ─────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.code-workspace
+
+# ── Test & coverage ───────────────────────────────────────────────────────────
+.coverage*
+.pytest_cache/
+.tox/
+.mypy_cache/
+.hypothesis/
+
+# ── OS / editor noise ─────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+Icon?
+$RECYCLE.BIN/
+*.lnk
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Archives & large blobs (keep repo lean) ───────────────────────────────────
 *.zip
-/tools/*.exe
-/tools/*.msi
-/tools/*.dll
-/tools/nuclei-templates/
-*.env
-*.token
-secrets.txt
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+
+# ── Misc caches ───────────────────────────────────────────────────────────────
+.cache/
+.tmp/
+*.swp
+*.swo
+
+# ── Keep placeholders tracked ─────────────────────────────────────────────────
+!/out/.gitkeep
+!/domain/.gitkeep
+!/wordpress/.gitkeep
+!/tmp/.gitkeep
+
+# ── Generators (optional: ignore if you don’t want to commit it) ─────────────
+# setup_files.ps1

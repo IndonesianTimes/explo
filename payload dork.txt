@@ -1,0 +1,4 @@
+site:*.google.com ext:php inurl:"wp-"(wp)
+site:*.google.com inurl:login (login page)
+site:*.google.com inurl:login ext:jsp -inurl:assets intext:"username" AND intext:"password" -inurl:assets (login)
+site:*.google.com ext:txt inurl:password OR inurl:credentials -inurl:readme.txt (text cred)

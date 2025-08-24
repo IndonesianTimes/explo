@@ -1,0 +1,12 @@
+templates-directory: C:\Users\Admin\Desktop\explo\tools\nuclei-templates
+rate-limit: 600
+bulk-size: 25
+concurrency: 100
+retries: 0
+timeout: 12
+project: true
+project-path: C:\Users\Admin\Desktop\explo\out\nuclei-project
+tags: [wordpress, file-upload, takeover, rce, cve]
+exclude-tags: [code]
+severity: [critical, high]
+stats: true

@@ -1,0 +1,15 @@
+/out/
+/output/
+/out_debug/
+/tmp/
+*.log
+*.jsonl
+*.flag
+*.zip
+/tools/*.exe
+/tools/*.msi
+/tools/*.dll
+/tools/nuclei-templates/
+*.env
+*.token
+secrets.txt

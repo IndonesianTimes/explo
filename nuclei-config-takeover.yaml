@@ -1,0 +1,25 @@
+templates-directory: "C:\\Users\\Admin\\Desktop\\explo\\tools\\nuclei-templates"
+
+tags:
+  - takeovers
+  - file-upload
+  - rce
+  - cve
+
+exclude-tags:
+  - code
+
+severity:
+  - critical
+  - high
+
+concurrency: 50
+rate-limit: 200
+retries: 1
+bulk-size: 25
+timeout: 10
+no-color: true
+stats: true
+stats-interval: 5s
+project: true
+project-path: "out\\nuclei-project"

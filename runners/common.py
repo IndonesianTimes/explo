@@ -53,6 +53,18 @@ def cfg():
                   "exclude_tags":["code"],"severity":["critical","high"]},
         "wp":{"wpscan_max_threads":10,"request_timeout":12,"connect_timeout":5,"tls_disable_checks":True},
         "outputs":{"out_dir":"out","logs_dir":"out/logs","tmp_dir":"tmp"},
+        "routes":{
+            "input":{
+                "domain_dir":"domain",
+                "wordpress_dir":"wordpress",
+                "subs_fallbacks":["subs.txt","output/subs.txt","out/subs.txt"]
+            },
+            "output":{
+                "job_dir":"out/jobs/current"
+            }
+        },
+        "naming":{"suggest_timestamp":True},
+        "persist":{"remember_last":True,"file":"config/last_routes.json"},
     }
 
 def timestamp():
@@ -60,12 +72,21 @@ def timestamp():
 
 def ensure_dirs():
     c = cfg()
-    for p in ["out_dir","logs_dir","tmp_dir"]:
-        Path(ROOT / c["outputs"][p]).mkdir(parents=True, exist_ok=True)
-    (ROOT/"out"/"cms").mkdir(parents=True, exist_ok=True)
-    (ROOT/"out"/"live").mkdir(parents=True, exist_ok=True)
-    (ROOT/"out"/"wpscan"/"raw").mkdir(parents=True, exist_ok=True)
-    (ROOT/"out"/"nuclei-project").mkdir(parents=True, exist_ok=True)
+    paths = [
+        ROOT / c["outputs"]["out_dir"],
+        ROOT / c["outputs"]["logs_dir"],
+        ROOT / c["outputs"]["tmp_dir"],
+        ROOT / c["routes"]["input"]["domain_dir"],
+        ROOT / c["routes"]["input"]["wordpress_dir"],
+        ROOT / c["routes"]["output"]["job_dir"],
+        ROOT / "out" / "nuclei-project",
+    ]
+    for p in paths:
+        Path(p).mkdir(parents=True, exist_ok=True)
+
+def sanitize_base(name: str) -> str:
+    name = name.replace(" ", "_")
+    return re.sub(r"[^A-Za-z0-9._-]", "_", name)
 
 def exe_name(base):
     return base + ".exe" if os.name == "nt" else base

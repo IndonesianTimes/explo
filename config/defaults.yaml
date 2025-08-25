@@ -31,3 +31,16 @@ outputs:
   out_dir: "out"
   logs_dir: "out/logs"
   tmp_dir: "tmp"
+
+routes:
+  input:
+    domain_dir: "domain"
+    wordpress_dir: "wordpress"
+    subs_fallbacks: ["subs.txt","output/subs.txt","out/subs.txt"]
+  output:
+    job_dir: "out/jobs/current"
+naming:
+  suggest_timestamp: true
+persist:
+  remember_last: true
+  file: "config/last_routes.json"
